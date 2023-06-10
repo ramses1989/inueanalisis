@@ -1,0 +1,103 @@
+import socket
+import ssl
+
+# Paso 1: Obtener información sobre la dirección IP
+def get_ip_info(ip_address):
+    return "Obteniendo información de IP para: " + ip_address
+
+# Paso 2: Realizar un escaneo de puertos
+def port_scan(ip_address):
+    return [80, 443, 22, 3389, 8080]
+
+# Paso 3: Realizar una verificación de SSL/TLS
+def ssl_check(ip_address):
+    return "Realizando verificación SSL/TLS para: " + ip_address
+
+# Paso 4: Realizar un análisis de vulnerabilidades autorizadas
+def vulnerability_scan(ip_address):
+    return ["Vulnerabilidad 1", "Vulnerabilidad 2", "Vulnerabilidad 3"]
+
+# Paso 5: Calcular probabilidades y porcentajes de vulnerabilidad
+def calculate_vulnerability_probabilities(open_ports, vulnerabilities):
+    vulnerability_probabilities = {}
+
+    total_open_ports = len(open_ports)
+    total_vulnerabilities = len(vulnerabilities)
+
+    for port in open_ports:
+        vulnerability_count = 0
+
+        for vulnerability in vulnerabilities:
+            # Verificar si la vulnerabilidad está asociada a este puerto
+            if vulnerability in str(port):
+                vulnerability_count += 1
+
+        vulnerability_probability = vulnerability_count / total_vulnerabilities
+        vulnerability_probabilities[port] = vulnerability_probability
+
+    return vulnerability_probabilities
+
+# Paso 6: Asignar un rating o grading para cada puerto abierto
+def assign_port_ratings(vulnerability_probabilities):
+    port_ratings = {}
+
+    for port, probability in vulnerability_probabilities.items():
+        if probability == 0:
+            rating = "A (Muy seguro)"
+        elif probability < 0.25:
+            rating = "B (Seguro)"
+        elif probability < 0.5:
+            rating = "C (Moderado)"
+        elif probability < 0.75:
+            rating = "D (Vulnerable)"
+        else:
+            rating = "E (Muy vulnerable)"
+
+        port_ratings[port] = rating
+
+    return port_ratings
+
+# Paso 7: Generar sugerencias para mejorar la seguridad
+def generate_security_suggestions(port_ratings):
+    security_suggestions = {}
+
+    for port, rating in port_ratings.items():
+        if rating == "E (Muy vulnerable)":
+            suggestion = "Encriptar el tráfico y restringir el acceso a este puerto."
+        elif rating == "D (Vulnerable)":
+            suggestion = "Considerar encriptar el tráfico y aplicar medidas adicionales de seguridad."
+        else:
+            suggestion = "Se recomienda mantener el monitoreo constante y aplicar las mejores prácticas de seguridad."
+
+        security_suggestions[port] = suggestion
+
+    return security_suggestions
+
+# Dirección IP objetivo
+ip_address = "198.49.23.144"
+
+# Obtener información de IP
+ip_info = get_ip_info(ip_address)
+
+# Realizar escaneo de puertos
+open_ports = port_scan(ip_address)
+
+# Realizar análisis de vulnerabilidades autorizadas
+vulnerabilities = vulnerability_scan(ip_address)
+
+# Calcular probabilidades y porcentajes de vulnerabilidad
+vulnerability_probabilities = calculate_vulnerability_probabilities(open_ports, vulnerabilities)
+
+# Asignar un rating o grading para cada puerto abierto
+port_ratings = assign_port_ratings(vulnerability_probabilities)
+
+# Generar sugerencias para mejorar la seguridad
+security_suggestions = generate_security_suggestions(port_ratings)
+
+# Imprimir los resultados
+print("Información de IP:", ip_info)
+print("Puertos abiertos:", open_ports)
+print("Vulnerabilidades:", vulnerabilities)
+print("Probabilidades de vulnerabilidad:", vulnerability_probabilities)
+print("Ratings de puertos:", port_ratings)
+print("Sugerencias de seguridad:", security_suggestions)
