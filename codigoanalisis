@@ -1,0 +1,48 @@
+import socket
+import ssl
+import matplotlib.pyplot as plt
+
+# Paso 1: Obtener información sobre la dirección IP
+def get_ip_info(ip_address):
+    # Implementa aquí la lógica para obtener información de IP, como geolocalización, proveedor de servicios, etc.
+    # Retorna la información relevante
+    # Ejemplo: Devuelve una cadena que indica que se está obteniendo información de IP
+    return "Obteniendo información de IP para: " + ip_address
+
+# Paso 2: Realizar un escaneo de puertos
+def port_scan(ip_address):
+    # Implementa aquí la lógica para escanear los puertos en la dirección IP y obtener los resultados
+    # Retorna una lista de puertos abiertos
+    # Ejemplo: Devuelve una lista con los primeros 5 puertos abiertos (solo para fines de demostración)
+    return [80, 443, 22, 3389, 8080]
+
+# Paso 3: Realizar una verificación de SSL/TLS
+def ssl_check(ip_address):
+    # Implementa aquí la lógica para establecer una conexión SSL/TLS con el servidor y verificar los detalles de seguridad
+    # Retorna información sobre el certificado, protocolo y cifrados utilizados
+    # Ejemplo: Devuelve una cadena que indica que se está realizando la verificación SSL/TLS
+    return "Realizando verificación SSL/TLS para: " + ip_address
+
+# Paso 4: Analizar los resultados y crear gráficos
+def analyze_results(ip_address, ip_info, open_ports, ssl_info):
+    # Implementa aquí la lógica para analizar los resultados y crear gráficos utilizando bibliotecas de visualización como matplotlib
+    # Puedes crear gráficos que muestren información como los protocolos SSL/TLS compatibles, cifrados débiles, etc.
+    # Ejemplo: Imprime la información recopilada para fines de demostración
+    print("Información de IP:", ip_info)
+    print("Puertos abiertos:", open_ports)
+    print("Información de SSL/TLS:", ssl_info)
+
+# Dirección IP objetivo
+ip_address = "198.49.23.144"
+
+# Obtener información de IP
+ip_info = get_ip_info(ip_address)
+
+# Realizar escaneo de puertos
+open_ports = port_scan(ip_address)
+
+# Realizar verificación de SSL/TLS
+ssl_info = ssl_check(ip_address)
+
+# Analizar resultados y crear gráficos
+analyze_results(ip_address, ip_info, open_ports, ssl_info)
